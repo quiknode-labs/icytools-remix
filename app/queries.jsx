@@ -1,5 +1,5 @@
 export const TRENDING_COLLECTIONS = `{
-  contracts(orderBy: SALES, orderDirection: DESC) {
+  contracts(orderBy: SALES, orderDirection: DESC, first: 10) {
     edges {
       node {
         address
@@ -8,7 +8,11 @@ export const TRENDING_COLLECTIONS = `{
           stats {
             totalSales
             average
+            ceiling
+            floor
+            volume
           }
+          symbol
         }
       }
     }

@@ -20,20 +20,35 @@ export let loader = async () => {
 
 export default function Index() {
   const { data } = useLoaderData()
-  const { contracts } = data
-  const { edges } = contracts
-  console.log(edges)
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Icy Tools with Remix</h1>
-      <ul>
-        {edges.map(({ node }) => (
-          <li key={node.address}>
-            {node.name} - {node.address}
-          </li>
-        ))}
-      </ul>
+    <div className="App">
+      <h1>Welcome to icy.tools with Remix</h1>
+      <h3>Stats in last hour</h3>
+      <table>
+        <thead>
+          <td>Collection</td>
+          <td style={{ textAlign: "right" }}>Floor</td>
+          <td style={{ textAlign: "right" }}>Volume</td>
+          <td style={{ textAlign: "right" }}>Total Sales</td>
+          <td style={{ textAlign: "right" }}>Average</td>
+        </thead>
+        <tbody>
+          {data.contracts.edges.map(
+            (collection) => {
+              return (
+                <tr key={collection.node.address}>
+                  <td>{collection.node.name}</td>
+                  <td className="mono">Ξ{collection.node.stats.floor.toFixed(3)}</td>
+                  <td className="mono">Ξ{collection.node.stats.volume.toFixed(3)}</td>
+                  <td className="mono">{collection.node.stats.totalSales}</td>
+                  <td className="mono">Ξ{collection.node.stats.average.toFixed(3)}</td>
+                </tr>
+              )
+            }
+          )}
+        </tbody>
+      </table>
     </div>
   )
 }

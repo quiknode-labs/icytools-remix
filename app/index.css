@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: black;
+    color: white;
+  }
+  .App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 12px;
+  }
+  .mono {
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+    opacity: .75;
+  }
+  :root {
+    --mono: 'Roboto Mono', monospace;
+  }
+  thead td {
+    padding: 8px 12px;
+    font-weight: 600;
+  }
+  tbody td {
+    padding: 2px 12px;
+  }
